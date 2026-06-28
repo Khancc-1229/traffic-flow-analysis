@@ -1,0 +1,30 @@
+# 模型文件 (太大, 每个几百MB)
+*.pt
+
+# 输出视频 + 报告 (太大)
+output/*.mp4
+output/*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+
+# 输入视频 (几百MB)
+*.mp4
+
+# Python
+*.egg-info/
+dist/
+build/
+*.log
+
+# 临时截图
+screenshot_*.png
+
+# 系统文件
+.DS_Store
+Thumbs.db

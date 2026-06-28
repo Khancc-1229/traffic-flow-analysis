@@ -4,12 +4,17 @@
 完整 pipeline: 标定 → 检测 → 跟踪 → 计数 → 测速 → 可视化 → 统计
 
 运行模式:
-    python main.py              正常模式 (使用已有标定)
-    python main.py --calibrate  交互标定模式
+    python src/main.py              正常模式 (使用已有标定)
+    python src/main.py --calibrate  交互标定模式
 """
 
 import os
 import sys
+
+# 确保工作目录在项目根
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.getcwd(), "src"))
+
 import time
 import json
 import argparse

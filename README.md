@@ -6,19 +6,20 @@
 
 ```
 d:\交通流量\
-├── config.py               # 集中配置 + 标定参数持久化
-├── main.py                 # 主流程编排 + 交互标定 UI + 数据收集
-├── detector.py             # YOLO 检测器 + ROI 空间过滤
-├── tracker.py              # 目标轨迹管理器
-├── counter.py              # 虚拟线越线计数
-├── speed_estimator.py      # 透视变换速度估计
-├── visualizer.py           # 逐帧可视化引擎
-├── analytics.py            # 离线图表生成 (matplotlib)
-├── calibration.json        # 标定数据 (跨次运行复用)
-├── Traffic1.mp4            # 输入视频
-└── output/                 # 输出目录
+├── src/
+│   ├── main.py                 # 主流程编排 + 交互标定 UI + 数据收集
+│   ├── config.py               # 集中配置 + 标定参数持久化
+│   ├── detector.py             # YOLO 检测器 + ROI 空间过滤
+│   ├── tracker.py              # 目标轨迹管理器
+│   ├── counter.py              # 虚拟线越线计数
+│   ├── speed_estimator.py      # 透视变换速度估计
+│   ├── visualizer.py           # 逐帧可视化引擎
+│   └── analytics.py            # 离线图表生成 (matplotlib)
+├── screenshots/                # 效果截图
+├── calibration.json            # 标定数据 (跨次运行复用)
+├── Traffic1.mp4                # 输入视频
+└── output/                     # 输出目录
     ├── result_{model}.mp4       # 标注后的结果视频
-    ├── report_{model}.json      # 统计报告
     └── charts_{model}/          # 分析图表 (5张)
 ```
 
@@ -95,7 +96,7 @@ pip install ultralytics opencv-python matplotlib numpy
 ### 1. 标定（首次运行必须）
 
 ```bash
-python main.py --calibrate
+python src/main.py --calibrate
 ```
 
 三步交互标定：
@@ -111,10 +112,10 @@ python main.py --calibrate
 
 ```bash
 # 选择模型运行（推荐 v8x）
-python main.py --model v8x
+python src/main.py --model v8x
 
 # 或交互选择
-python main.py
+python src/main.py
 ```
 
 ### 3. 查看结果
